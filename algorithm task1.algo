@@ -1,0 +1,53 @@
+algorithm task1 
+var 
+begin
+FUNCTION dot_product(v1,v2:array_of integers) : integer
+VAR
+    i:integer;
+    ps:integer;
+BEGIN
+    n:=v1.length;
+    nb:=v2.length;
+    for i from 0 to n do
+    for j from 0 to nb do 
+        ps:=ps+v1[i]*v2[j];
+    END_FOR
+    END_FOR
+    RETURN ps ;
+END 
+PROCEDURE find_orthogonal(v1,v2:array_of integers)
+VAR
+
+BEGIN
+    if (dot_product(v1,v2)==0)then 
+        write ("these are two orthogonal vectors");
+    END_IF
+END
+
+
+end
+
+
+//////////////
+
+algorithm task2 
+
+
+VAR
+t : array_of integers
+i : int 
+j : int
+k :int 
+BEGIN
+j:=1
+WHILE(j<=t.length)do  
+  i:=j-1
+  k:=t[j]
+  while( i>=0 and t[i]>k)do 
+    t[i+1]:=t[i]
+    i:=i-1
+  END_WHILE
+  t[i+1]:=k
+  j:=j+1
+END_WHILE
+END
